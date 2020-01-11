@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     
     # http://man7.org/linux/man-pages/man1/date.1.html
     - id: get-time
