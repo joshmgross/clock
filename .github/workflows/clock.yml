@@ -24,7 +24,7 @@ jobs:
     - name: Update Readme
       run: |
         time_string="# HOUR: ${{ steps.get-time.outputs.hour }} DAY: ${{ steps.get-time.outputs.date}} (UTC)"
-        if [[ "$(cat README.md)" = "$time_string" ]; then echo "No clock changes";  exit 0; fi
+        if [ "$(cat README.md)" = "$time_string" ]; then echo "No clock changes";  exit 0; fi
 
         rm README.md
         echo "$time_string" > README.md
