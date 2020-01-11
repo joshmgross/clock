@@ -22,4 +22,12 @@ jobs:
       shell: bash
 
     - run: echo "It is the ${{ steps.get-time.outputs.hour }} hour on ${{ steps.get-time.outputs.date}} UTC"
-
+    
+    - name: Update Readme
+      run: |
+        time_string="#It is the ${{ steps.get-time.outputs.hour }} hour on ${{ steps.get-time.outputs.date}} UTC"
+        rm README.md
+        echo "$time_string" > README.md
+        git add README.md
+        git commit -m "Update time to hour ${{ steps.get-time.outputs.hour }} on ${{ steps.get-time.outputs.date}}"
+        git push
