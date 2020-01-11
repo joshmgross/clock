@@ -3,7 +3,7 @@ name: Tick Tock
 on:
   push:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 * * * *'
 jobs:
   build:
 
@@ -20,12 +20,10 @@ jobs:
         echo "::set-output name=date::$date"
         echo "::set-output name=hour::$hour"
       shell: bash
-
-    - run: echo "It is the ${{ steps.get-time.outputs.hour }} hour on ${{ steps.get-time.outputs.date}} UTC"
     
     - name: Update Readme
       run: |
-        time_string="#It is the ${{ steps.get-time.outputs.hour }} hour on ${{ steps.get-time.outputs.date}} UTC"
+        time_string="# It is hour ${{ steps.get-time.outputs.hour }} on ${{ steps.get-time.outputs.date}} UTC"
         rm README.md
         echo "$time_string" > README.md
 
