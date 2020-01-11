@@ -1,1 +1,1 @@
-# It is hour 04 on 2020-01-11 UTC
+# HOUR: 04 DAT: 2020-01-11 (UTC)
