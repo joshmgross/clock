@@ -15,7 +15,8 @@ jobs:
     - name: Get Date
       id: get-date
       run: |
-        echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")" # http://man7.org/linux/man-pages/man1/date.1.html
+        formatted_date="$(/bin/date -u "+%Y%m%d")"
+        echo "::set-output name=date::$formatted_date" # http://man7.org/linux/man-pages/man1/date.1.html
       shell: bash
 
     - run: echo ${{ steps.get-date.outputs.date }}
