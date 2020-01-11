@@ -18,7 +18,7 @@ jobs:
         date="$(date -u "+%Y-%m-%d")"
         hour="$(date -u "+%H")"
         echo "::set-output name=date::$date"
-        echo "::set-output name=date::$hour"
+        echo "::set-output name=hour::$hour"
       shell: bash
 
     - run: echo "It is the ${{ steps.get-time.outputs.hour }} hour on ${{ steps.get-time.outputs.date}} UTC"
