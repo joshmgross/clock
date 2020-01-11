@@ -23,7 +23,7 @@ jobs:
     
     - name: Update Readme
       run: |
-        time_string="# HOUR: ${{ steps.get-time.outputs.hour }} DAT: ${{ steps.get-time.outputs.date}} (UTC)"
+        time_string="# HOUR: ${{ steps.get-time.outputs.hour }} DAY: ${{ steps.get-time.outputs.date}} (UTC)"
         rm README.md
         echo "$time_string" > README.md
 
