@@ -12,20 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     
-    - name: Get Date
-      id: get-date
+    # http://man7.org/linux/man-pages/man1/date.1.html
+    - id: get-time
       run: |
-        formatted_date="$(/bin/date -u "+%Y%m%d")"
-        echo "::set-output name=date::$formatted_date" # http://man7.org/linux/man-pages/man1/date.1.html
+        date="$(date -u "+%Y-%m-%d")"
+        hour="$(date -u "+%H")"
+        echo "::set-output name=date::$date"
+        echo "::set-output name=date::$hour"
       shell: bash
 
-    - run: echo ${{ steps.get-date.outputs.date }}
-    
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        # Artifact name
-        name: daily-build-${{ steps.get-date.outputs.date }}
-        # Directory containing files to upload
-        path: .github
+    - run: echo "It is the ${{ steps.get-time.outputs.hour }} hour on ${{ steps.get-time.outputs.date}} UTC"
 
